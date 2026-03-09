@@ -98,6 +98,7 @@ export default function App() {
   const [wakeOptions, setWakeOptions] = useState<{ time: string; cycles: number; hours: number }[]>([]);
   const [result, setResult] = useState<string>("");
   const [feedbackSent, setFeedbackSent] = useState(false);
+  const [comment, setComment] = useState("");
 
   const handleAnalyze = () => {
     if (!time || age === "") return alert("請輸入年齡與時間！");
@@ -144,19 +145,23 @@ export default function App() {
   const sendFeedback = async (emoji: string) => {
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbxDtowgpOCAL_vVXskWSPvAPCisP5YFPe3Fs_8NyzSGX4y0iohxigdXD2K6QLkGbzES/exec",
+        "https://script.google.com/macros/s/AKfycbwEBih_z1KkiaTln-IyhxWmtNMoUcD8bOpXToUTZN7Gkv-5FAGFzCTnC8JCQQk75VlS/exec",
         {
           method: "POST",
           mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ rating: emoji }), // ← 改成 rating
+          body: JSON.stringify({ 
+            rating: emoji,
+            comment: comment
+          }), 
         }
       );
   
-      console.log("feedback sent:", emoji); // ← debug用
+      console.log("feedback sent:", emoji, comment); 
       setFeedbackSent(true);
+      setComment("");
     } catch (err) {
       console.error(err);
       alert("回饋送出失敗，請稍後再試！");
