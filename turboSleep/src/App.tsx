@@ -84,7 +84,7 @@ function format12Hour(hour: number, minute: number) {
 }
 
 function getSleepEmoji(hours: number, ageGroup: AgeGroup) {
-  const [low, healthyMax, high] = sleepHealthMap[ageGroup];
+  const [low, healthyMax] = sleepHealthMap[ageGroup];
   if (hours < low) return { emoji: "😢", color: "red", text: "極不健康" };
   if (hours < healthyMax) return { emoji: "😄", color: "green", text: "健康" };
   return { emoji: "😐", color: "orange", text: "不健康" };
