@@ -1,77 +1,135 @@
-/* 定義顏色變數 */
 :root {
-  font-family: 'M PLUS Rounded 1c', 'Noto Sans TC', system-ui, sans-serif;
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
   line-height: 1.5;
+
   font-weight: 400;
 
-  /* 你的配色定義 */
-  --accent: #fefdab;        /* 淺黃色 */
-  --button-color: #1e3a8a;  /* 深藍色 */
-  --text-color: #f8fafc;
-  
+
+
   color-scheme: light dark;
-  color: var(--text-color);
+
+  color: rgba(255, 255, 255, 0.87);
+
   background-color: #242424;
 
+
+
   font-synthesis: none;
+
   text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
+
   -moz-osx-font-smoothing: grayscale;
+
 }
 
-/* 讓 body 內的內容可以居中 */
+
+
+a {
+
+  font-weight: 500;
+
+  color: #646cff;
+
+  text-decoration: inherit;
+
+}
+
+a:hover {
+
+  color: #535bf2;
+
+}
+
+
+
 body {
+
   margin: 0;
+
   display: flex;
-  justify-content: center;
-  align-items: center;
+
+  place-items: center;
+
   min-width: 320px;
+
   min-height: 100vh;
+
 }
 
-/* --- 留言框專屬樣式 --- */
 
-/* 留言框容器 - 確保內部元素置中 */
-.feedback-comment-box {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
+
+h1 {
+
+  font-size: 3.2em;
+
+  line-height: 1.1;
+
 }
 
-/* 留言框本體樣式 */
-.feedback-textarea {
-  width: 90%;
-  max-width: 400px;
-  margin: 0 auto;
-  border-radius: 12px;
-  padding: 12px;
-  font-size: 14px;
-  resize: none;
-  display: block;
-  
-  /* 顏色設定：深藍底、淺黃字 */
-  background-color: var(--button-color) !important; 
-  color: var(--accent) !important; 
-  border: 1px solid #363e4a;
-  outline: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
+
+
+button {
+
+  border-radius: 8px;
+
+  border: 1px solid transparent;
+
+  padding: 0.6em 1.2em;
+
+  font-size: 1em;
+
+  font-weight: 500;
+
+  font-family: inherit;
+
+  background-color: #1a1a1a;
+
+  cursor: pointer;
+
+  transition: border-color 0.25s;
+
 }
 
-/* 聚焦時的發光效果 */
-.feedback-textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
+button:hover {
+
+  border-color: #646cff;
+
 }
 
-/* 修正 placeholder 顏色 (淡黃色) */
-.feedback-textarea::placeholder {
-  color: rgba(254, 253, 171, 0.5);
+button:focus,
+
+button:focus-visible {
+
+  outline: 4px auto -webkit-focus-ring-color;
+
 }
 
-/* 針對表情符號區塊的微調 */
-.feedback-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 確保內部元件全部水平置中 */
+
+
+@media (prefers-color-scheme: light) {
+
+  :root {
+
+    color: #213547;
+
+    background-color: #ffffff;
+
+  }
+
+  a:hover {
+
+    color: #747bff;
+
+  }
+
+  button {
+
+    background-color: #f9f9f9;
+
+  }
+
 }
