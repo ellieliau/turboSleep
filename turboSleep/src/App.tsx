@@ -300,14 +300,6 @@ export default function App() {
         placeholder="想對我說些什麼嗎？"
         value={comment} 
         onChange={(e) => setComment(e.target.value)}
-        style={{
-          width: '100%',
-          borderRadius: '8px',
-          padding: '10px',
-          border: '1px solid #ddd',
-          color: 'black', 
-          backgroundColor: 'white'
-        }}
         rows={3}
       />
     </div>
