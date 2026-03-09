@@ -273,9 +273,11 @@ export default function App() {
           </ResponsiveContainer>
         </div>
       )}
-     {chartData.length > 0 && !feedbackSent && (
+{chartData.length > 0 && !feedbackSent && (
   <div className="feedback-container animate-fadeIn">
     <p className="feedback-title">這個網站的數據對您的幫助有多大？</p>
+    
+    {/* 1. 表情符號按鈕區 */}
     <div className="feedback-emojis">
       <button className="feedback-btn" onClick={() => sendFeedback("😄")}>
         <span className="emoji">😄</span>
@@ -289,6 +291,25 @@ export default function App() {
         <span className="emoji">😢</span>
         <span className="label">沒幫助</span>
       </button>
+    </div> {/* <-- 關鍵：這行原本漏掉了，用來關閉 emojis 區塊 */}
+
+    {/* 2. 留言框區（放在按鈕區外面，排在下方） */}
+    <div className="feedback-comment-box" style={{ marginTop: '15px' }}>
+      <textarea
+        className="feedback-textarea"
+        placeholder="想對我說些什麼嗎？"
+        value={comment} 
+        onChange={(e) => setComment(e.target.value)}
+        style={{
+          width: '100%',
+          borderRadius: '8px',
+          padding: '10px',
+          border: '1px solid #ddd',
+          color: 'black', 
+          backgroundColor: 'white'
+        }}
+        rows={3}
+      />
     </div>
   </div>
 )}
@@ -296,7 +317,6 @@ export default function App() {
 {chartData.length > 0 && feedbackSent && (
   <p className="feedback-thanks animate-fadeIn">💬 感謝您的回饋！</p>
 )}
-
     </div>
   );
 }
